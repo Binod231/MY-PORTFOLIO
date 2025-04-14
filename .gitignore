@@ -1,0 +1,13 @@
+__pycache__/
+.env
+.venv
+portfolioenv/
+*.sqlite
+*.db
+*/__pycache__
+node_modules/
+!static/**/*.jpg
+!static/**/*.jpeg
+!static/**/*.png
+!static/**/*.gif
+!static/**/*.webp

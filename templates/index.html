@@ -1,0 +1,437 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <!-- Brand Logo and Name -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Home">
+      <img src="/static/images/logo.png" alt="Logo" width="60" height="60"
+        class="d-inline-block align-middle logo">
+      <span class="nav-name text-primary fs-4 fw-semibold">Binod Prasad Joshi</span>
+    </a>
+
+    <!-- Enhanced 3D Animated Toggle Button -->
+    <button class="navbar-toggler custom-3d-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation"
+      aria-haspopup="true">
+      <div class="hamburger" aria-hidden="true">
+        <span class="hamburger-line top-line"></span>
+        <span class="hamburger-line middle-line"></span>
+        <span class="hamburger-line bottom-line"></span>
+      </div>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <!-- Collapsible Nav Items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center text-lg-start d-flex justify-content-center align-items-center"
+        id="navbar-navid">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#About-section">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#skillss">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#Projects">Projects</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-icon ms-auto d-flex justify-content-center align-items-center text-center text-lg-start gap-lg-5">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="https://github.com/Binod231" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="https://www.linkedin.com/in/binod-prasad-joshi-549067281"
+            target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="https://www.instagram.com/binodzoci" 
+            target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section (separate container) -->
+<div class="hero-container">
+  <div class="video-wrapper">
+    <video loop autoplay muted playsinline class="back-video">
+      <source src="/static/videos/galaxy.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="blackhole-box">
+    <video loop autoplay muted playsinline>
+      <source src="/static/videos/blackhole.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <section class="info d-flex align-items-center mb-5">
+    <div class="myinfo">
+      <div class="info-title">
+        <i class="bi bi-gem"></i>
+        Backend Developer Portfolio
+      </div>
+      <h1>Providing <span class="gradient">the best</span> Project <span
+          class="gradient">Experience</span></h1>
+      <p>I'm a Backend Developer and CSE Student with a strong passion for
+        databases and hands-on experience in building projects. Check
+        out my projects and skills to see what I can do!</p>
+      <a href="#contact-form">
+        <button><i class="bi bi-send"></i> Contact Me</button>
+      </a>
+    </div>
+
+    <div class="info-vid-box">
+      <video loop autoplay muted playsinline>
+        <source src="/static/videos/hero-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="scroll-down"></div>
+  </section>
+</div>
+
+<!-- Cards Section -->
+<section class="info-section container py-5" data-aos="fade-up">
+  <h1 class="section-title text-center text-white" id="About-section"
+    data-aos="fade-up"
+    data-aos-delay="100">Hello, There 👋</h1>
+
+  <div class="row card-grid g-4 justify-content-center">
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="card custom-card h-100">
+        <img src="/static/images/grid1.png" class="card-img-top"
+          alt="Binod Profile">
+        <div class="card-body">
+          <h5 class="card-title">Hi there, I'm Binod Prasad Joshi</h5>
+          <p class="card-text">With growing proficiency in REST APIs,
+            MySQL, and SQLAlchemy. I'm working on real-world
+            projects like a secure STORES API, Hospital Management
+            System, and Flask-based Image Editor.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+      <div class="card custom-card h-100">
+        <img src="/static/images/grid2.png"
+          class="card-img-top tech-img" alt="Tech Stack">
+        <div class="card-body">
+          <h5 class="card-title">Tech Stack</h5>
+          <p class="card-text">Skilled in Python, Flask, SQLAlchemy,
+            MySQL, and Git. I build scalable backend systems and
+            APIs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+      <div class="card custom-card h-100">
+        <video autoplay loop muted class="card-img-top">
+          <source src="/static/videos/glob.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <h5 class="card-title">Global Collaboration</h5>
+          <p class="card-text">Based in Punjab, India with roots in
+            Nepal. Open to global, remote, and hybrid
+            opportunities.</p>
+          <a href="#contact-form">
+            <button
+              class="btn btn-outline-primary justify-content-left mt-2">
+              <i class="bi bi-box-arrow-up-right"></i> Contact Me
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
+      <div class="card custom-card h-100">
+        <img src="/static/images/grid4.png" class="card-img-top"
+          alt="Coding Passion">
+        <div class="card-body">
+          <h5 class="card-title">Passion for Coding</h5>
+          <p class="card-text">I love solving problems and building
+            projects. Programming isn't just my job—it's my
+            passion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section class="project-section container py-2" data-aos="fade-up"
+  data-aos-delay="100">
+  <h1 class="section-title text-center text-white mb-5" id="Projects">Projects
+    Spotlight <span
+      class="gradient">🚀</span></h1>
+
+  <div class="row gx-5 gy-5 align-items-center">
+    <!-- Project 1 -->
+    <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="small-video-card rounded-4 overflow-hidden paused"
+        onmouseenter="playVideo(this)"
+        onmouseleave="pauseVideo(this)"
+        ontouchstart="toggleVideo(this)">
+        <video loop muted playsinline
+          poster="/static/images/project1-poster.jpg">
+          <source src="/static/videos/rest-api.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="project-description ps-lg-5">
+        <h5>Flask <span class="gradient"> REST API </span></h5>
+        <p>A comprehensive backend system with JWT authentication, SQLAlchemy
+          ORM, and Swagger documentation.</p>
+        <div class="d-flex gap-3">
+          <button class="btn btn-outline-primary"
+            onclick="window.open('https://github.com/Binod231/rest-api-project')">
+            <i class="bi bi-github me-2"></i> View Code
+          </button>
+          <button class="btn btn-primary" onclick="window.open('https://stores-restapi-3ewv.onrender.com/swagger-ui')">
+            <i class="bi bi-box-arrow-up-right me-2"></i> Live Demo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="col-12 col-lg-6 order-lg-2" data-aos="fade-up"
+      data-aos-delay="400">
+      <div class="small-video-card rounded-4 overflow-hidden paused"
+        onmouseenter="playVideo(this)"
+        onmouseleave="pauseVideo(this)"
+        ontouchstart="toggleVideo(this)">
+        <video loop muted playsinline
+          poster="/static/images/project.jpg">
+          <source src="/static/videos/imgeditor.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 order-lg-1">
+      <div class="project-description pe-lg-5 text-lg-end">
+        <h5>Image <span class="gradient">Editor</span></h5>
+        <p>Integrated OpenAI's CLIP with Flask to create an intelligent image
+          classification system.</p>
+        <div class="d-flex gap-3 justify-content-lg-end">
+          <button class="btn btn-outline-primary"
+            onclick="window.open('https://github.com/Binod231/Image-Editor')">
+            <i class="bi bi-github me-2"></i> View Code
+          </button>
+          <button class="btn btn-primary" onclick="window.open('https://image-editor-euo5.onrender.com')">
+            <i class="bi bi-box-arrow-up-right me-2"></i> Live Demo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 - This Portfolio -->
+    <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="600">
+      <div class="small-video-card rounded-4 overflow-hidden paused"
+        onmouseenter="playVideo(this)"
+        onmouseleave="pauseVideo(this)"
+        ontouchstart="toggleVideo(this)">
+        <video loop muted playsinline
+          poster="/static/images/portfolio-poster.jpg">
+          <source src="/static/videos/portfolio.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="project-description ps-lg-5">
+        <h5>Interactive <span class="gradient">Portfolio</span></h5>
+        <p>My current Flask portfolio featuring animated components, video
+          backgrounds, and responsive design. Built with:</p>
+        <ul class="tech-stack mb-3">
+          <li>Python/Flask backend</li>
+          <li>Custom SCSS animations</li>
+          <li>Interactive video elements</li>
+          <li>Mobile-first responsive design</li>
+        </ul>
+        <div class="d-flex gap-3">
+          <button class="btn btn-outline-primary" onclick="window.open('https://github.com/Binod231/Image-Editor')">View Code
+            <i class="bi bi-github me-2"></i> 
+          </button>
+          <button class="btn btn-primary" disabled>
+            <i class="bi bi-box-arrow-up-right me-2"></i> You're Viewing it!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <section class="skills-section container py-5 bg-dark2" id="skillss"
+    data-aos="fade-up"
+    data-aos-delay="100">
+    <!-- Added bg-dark2 -->
+    <h1 class="section-title text-center text-white mb-5">My Skills <span
+        class="gradient">✨</span></h1>
+
+    <div class="row align-items-center g-4" data-aos="fade-up"
+      data-aos-delay="200">
+      <!-- Designer (Left) -->
+      <div class="col-md-4 order-md-1">
+        <div class="skill-card p-4 h-100 bg-glass"> <!-- Added bg-glass -->
+          <h3 class="gradient mb-3">Designer <i
+              class="bi bi-laptop ms-2"></i></h3>
+          <p class="text-light"> <!-- Added text-light -->
+            I specialize in UI/UX design with expertise in HTML, CSS, Bootstrap,
+            and SCSS.
+            Proficient in Figma for prototyping and creating responsive layouts.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image (Center) -->
+      <div class="col-md-4 order-md-2">
+        <div class="d-flex justify-content-center">
+          <img src="/static/images/digital brain.png"
+            alt="Skills Visualization"
+            class="img-fluid skill-image"
+            style="max-width: 550px;"> <!-- Added inline style -->
+        </div>
+      </div>
+
+      <!-- Coder (Right) -->
+      <div class="col-md-4 order-md-3">
+        <div class="skill-card p-4 h-100 bg-glass"> <!-- Added bg-glass -->
+          <h3 class="gradient mb-3">Coder <i
+              class="bi bi-code-square ms-2"></i></h3>
+          <p class="text-light"> <!-- Added text-light -->
+            Experienced in Python/Flask for building REST APIs with JWT
+            authentication,
+            SQLAlchemy ORM, and database design. Skilled in AI integration.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack Icons -->
+    <div class="tech-slider mt-5" data-aos="fade-up" data-aos-delay="300">
+      <div class="slider-track">
+        <div class="slide"><i
+            class="devicon-python-plain colored fa-3x"></i><p>Python</p></div>
+        <div class="slide"><i
+            class="devicon-flask-original fa-3x"></i><p>Flask</p></div>
+        <div class="slide"><i
+            class="devicon-mysql-plain colored fa-3x"></i><p>MySQL</p></div>
+        <div class="slide"><i
+            class="devicon-html5-plain colored fa-3x"></i><p>HTML5</p></div>
+        <div class="slide"><i
+            class="devicon-css3-plain colored fa-3x"></i><p>CSS3</p></div>
+        <div class="slide"><i
+            class="devicon-git-plain colored fa-3x"></i><p>Git</p></div>
+
+        <!-- Duplicate for smooth looping -->
+        <div class="slide"><i
+            class="devicon-python-plain colored fa-3x"></i><p>Python</p></div>
+        <div class="slide"><i
+            class="devicon-flask-original fa-3x"></i><p>Flask</p></div>
+        <div class="slide"><i
+            class="devicon-mysql-plain colored fa-3x"></i><p>MySQL</p></div>
+        <div class="slide"><i
+            class="devicon-html5-plain colored fa-3x"></i><p>HTML5</p></div>
+        <div class="slide"><i
+            class="devicon-css3-plain colored fa-3x"></i><p>CSS3</p></div>
+        <div class="slide"><i
+            class="devicon-git-plain colored fa-3x"></i><p>Git</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section id="contact" class="info-section container py-4 mt-2"
+  data-aos="fade-up" data-aos-delay="100">
+  <h2 class="section-title text-center text-white mb-5" data-aos="fade-up"
+    data-aos-delay="100">Let's Talk <span class="gradient"> 💬 </span> </h2>
+  <div class="row">
+
+    <!-- Left Column: Contact Info -->
+    <div
+      class="col-md-5 mb-4 mb-md-0 text-white d-flex flex-column justify-content-between"
+      id="contact-down"
+      data-aos="fade-up" data-aos-delay="200">
+      <div>
+        <p><i class="bi bi-telephone-fill me-2"></i> +91-9027095080,
+          +977-9845465713</p>
+        <p><i class="bi bi-envelope-fill me-2"></i>
+          Joshibinodprasad77@gmail.com</p>
+        <p><i class="bi bi-linkedin me-2"></i> <a
+            href="https://www.linkedin.com/in/binod-prasad-joshi-549067281"
+            class="text-white text-decoration-none"
+            target="_blank">Binod Prasad Joshi</a></p>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="mt-4 d-flex gap-3 footer-icon">
+        <a href="https://www.facebook.com/share/16amE7B9HG/" target="_blank"
+          class="text-white fs-4 footer-link"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/Binod231" target="_blank"
+          class="text-white fs-4 footer-link"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/binod-prasad-joshi-549067281"
+          target="_blank" class="text-white fs-4 footer-link"><i
+            class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Right Column: Contact Form -->
+    <div class="col-md-7 form-data" id="contact-form" data-aos="fade-up"
+      data-aos-delay="200">
+      <div class="form-header mb-4">
+        <p class="text-wheat">From brand-new websites to platform improvements
+          and innovative projects—I'm here to turn ideas into reality.</p>
+      </div>
+      <form method="POST" action="{{ url_for('home') }}">
+        <div class="mb-3">
+          <label for="name" class="form-label text-white">Full Name</label>
+          <input type="text" class="form-control" id="name" name="name"
+            placeholder="Your Full Name"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label text-white">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email"
+            placeholder="Your Email"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label text-white">Your
+            Message</label>
+          <textarea class="form-control" id="message" name="message" rows="1"
+            placeholder="Share your thoughts"
+            required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-light mt-2">
+          <i class="bi bi-send"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block video_scripts %}
+<script src="{{ url_for('static', filename='js/project-video.js') }}"></script>
+{% endblock %}
