@@ -1,9 +1,13 @@
+// Variables
 $font-family: Arial,
 Helvetica,
 sans-serif;
 $primary-color: #0d6efd;
 $light-gray: lightgray;
+$nav-icon-color: #727fde;
+$nav-icon-active: #00c3ff;
 
+// Base Styles
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +15,263 @@ body {
   color: lightgray;
 }
 
-// HERO CONTAINER (separate from main content)
+// Navbar Name Animation
+@keyframes bounceLeftToRight {
+  0% {
+    transform: translateX(-100%) scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(10%) scale(1.05);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateX(-5%) scale(1.02);
+  }
+
+  100% {
+    transform: translateX(0%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ballBounce {
+  0% {
+    transform: translateY(-100%) scaleY(1.2) scaleX(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(20%) scaleY(0.8) scaleX(1.1);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(-10%) scaleY(1.05);
+  }
+
+  85% {
+    transform: translateY(5%) scaleY(0.97);
+  }
+
+  100% {
+    transform: translateY(0%) scaleY(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+// Mobile Navigation Styles
+.custom-navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(114, 161, 222, 0.4);
+  padding: 0 20px;
+  z-index: 999;
+  position: fixed;
+  height: 70px;
+
+  .navbar-brand {
+    .nav-name {
+      display: inline-block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      font-size: 1.5rem;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        transform: translateX(-100%);
+        // animation: nameReveal 2.5s ease-in-out forwards;
+        animation-delay: 0.5s;
+      }
+
+      span.char {
+        display: inline-block;
+        color: #00FFFF;
+        opacity: 0;
+        animation:
+          ballBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+
+        @for $i from 1 through 20 {
+          &:nth-child(#{$i}) {
+            animation-delay: 0.3s + ($i * 0.05s);
+          }
+        }
+      }
+
+      @media (max-width: 992px) {
+        font-size: 1.3rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 1rem;
+        white-space: nowrap;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 0.9rem;
+        max-width: 120px;
+      }
+    }
+
+    img.logo {
+      @media (max-width: 576px) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  // Mobile Nav Icons
+  #mobile-nav-icons {
+    display: flex;
+    margin-left: auto;
+    
+    &:hover,
+      &.active {
+        background-color: rgba($nav-icon-color, 0.3);
+        transform: translateY(-2px);
+
+        i {
+          color: $nav-icon-color;
+        }
+      }
+
+    .nav-icon {
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+      margin: 0 8px;
+
+      i {
+        font-size: 1.4rem;
+        transition: all 0.3s ease;
+      }
+
+      &:hover,
+      &.active {
+        background-color: rgba($nav-icon-color, 0.3);
+        transform: translateY(-2px);
+
+        i {
+          color: $nav-icon-color;
+        }
+      }
+
+      &::after {
+        content: attr(title);
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.7rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: white;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+
+      @media (max-width: 576px) {
+        width: 36px;
+        height: 36px;
+        margin: 0 5px;
+
+        i {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        width: 34px;
+        height: 34px;
+        margin: 0 4px;
+      }
+    }
+  }
+}
+
+// Desktop Navigation Styles
+@media (min-width: 992px) {
+  .custom-navbar {
+    height: 80px;
+
+    #mobile-nav-icons {
+      display: none;
+    }
+
+    #navbar-navid {
+      display: flex;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 69, 0.30);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(114, 127, 222, 0.4);
+      height: 45px;
+      gap: 6rem;
+    }
+  }
+}
+
+// Very small screens
+@media (max-width: 400px) {
+  .custom-navbar {
+    padding: 0 8px;
+
+    .navbar-brand {
+      gap: 0.5rem;
+
+      .nav-name {
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}
+
+// Active state for navigation
+.nav-link.active,
+.nav-icon.active {
+  color: $nav-icon-active !important;
+  text-shadow: 0 0 8px rgba($nav-icon-active, 0.6);
+
+  i {
+    color: $nav-icon-active !important;
+  }
+}
+
+// HERO CONTAINER
 .hero-container {
   z-index: 22;
   position: relative;
@@ -23,7 +283,6 @@ body {
 
   @media (max-width: 991.98px) {
     padding-bottom: 60px;
-    /* Smaller space on mobile */
   }
 
   .back-video {
@@ -134,7 +393,6 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 
-
   @media (max-width: 991.98px) {
     padding: 12px 25px;
   }
@@ -153,12 +411,10 @@ body {
   right: 3%;
   mix-blend-mode: lighten;
 
-  /* Mobile Styles */
   @media (max-width: 768px) {
     position: relative;
     right: auto;
     order: 1;
-    /* Forces to top in flex column */
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -183,7 +439,6 @@ body {
   position: absolute;
   left: 50%;
   bottom: 40px;
-  /* Changed from percentage to fixed value */
   transform: translateX(-50%);
   width: 30px;
   height: 50px;
@@ -191,12 +446,9 @@ body {
   border-radius: 25px;
   box-shadow: 0 0 15px rgba(211, 211, 211, 0.478);
   z-index: 10;
-  /* Ensure it stays above other elements */
 
-  /* Mobile adjustments */
   @media (max-width: 991.98px) {
     bottom: 20px;
-    /* Smaller fixed bottom spacing on mobile */
   }
 
   &::before,
@@ -221,8 +473,7 @@ body {
   }
 }
 
-
-// MAIN CONTAINER FOR SECTIONS
+// MAIN CONTAINER
 .container {
   position: relative;
   width: 100%;
@@ -245,25 +496,7 @@ body {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-// NAVBAR
-.custom-navbar {
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(114, 161, 222, 0.4);
-  padding: 0 20px;
-  z-index: 999;
-  position: fixed;
-
-  .navbar-toggler {
-    background-color: white;
-  }
-}
-
-// NAV LINKS + GLOW
+// NAV LINKS
 .navbar-nav .nav-link {
   position: relative;
   color: $primary-color;
@@ -389,82 +622,13 @@ body {
 }
 
 @media (max-width: 991.98px) {
-  .navbar-toggler {
-    border: none;
-    padding: 0.5rem;
-    background: transparent !important;
-    outline: none !important;
-    box-shadow: none !important;
-    z-index: 1001;
-    position: relative;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .navbar-toggler-icon {
-      width: 24px;
-      height: 16px;
-      position: relative;
-      display: inline-block;
-
-      span {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: white;
-        transform: translateY(-50%);
-        transition: all 0.3s ease;
-      }
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: white;
-        transition: all 0.3s ease;
-      }
-
-      &::before {
-        top: 0;
-      }
-
-      &::after {
-        bottom: 0;
-      }
-    }
-
-    &[aria-expanded="true"] {
-      .navbar-toggler-icon {
-        span {
-          opacity: 0;
-        }
-
-        &::before {
-          transform: rotate(45deg);
-          top: 8px;
-        }
-
-        &::after {
-          transform: rotate(-45deg);
-          bottom: 8px;
-        }
-      }
-    }
-  }
 
   // Slide Menu Panel
   .navbar-collapse {
     position: fixed;
     top: 0;
     right: 0;
-    width: 85%;
+    max-width: 65%;
     height: 100vh;
     background: rgba(10, 10, 30, 0.98);
     backdrop-filter: blur(15px);
@@ -615,7 +779,6 @@ body {
   padding-bottom: 50px;
 }
 
-/* ===== Project Video Cards - Hover to Play ===== */
 .small-video-card {
   position: relative;
   overflow: hidden;
@@ -641,7 +804,6 @@ body {
     }
   }
 
-  /* Play icon overlay */
   &::after {
     content: '▶';
     position: absolute;
@@ -656,13 +818,11 @@ body {
     pointer-events: none;
   }
 
-  /* Show play icon when paused */
   &.paused::after {
     opacity: 0.9;
   }
 }
 
-/* Mobile touch controls */
 @media (hover: none) {
   .small-video-card {
     &::after {
@@ -675,7 +835,6 @@ body {
   }
 }
 
-/* Project description enhancements */
 .project-description {
   padding: 20px;
 
@@ -719,7 +878,6 @@ body {
   }
 }
 
-/* Tech stack list styling */
 .tech-stack {
   padding-left: 1.5rem;
   list-style-type: none;
@@ -738,13 +896,11 @@ body {
   }
 }
 
-/* Disabled button styling */
 .btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-/* Portfolio project specific styles */
 .project-section .col-12:nth-child(5) {
   margin-top: 3rem;
 
@@ -763,7 +919,6 @@ body {
   }
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
@@ -776,7 +931,6 @@ body {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-
 }
 
 .info-section {
@@ -784,43 +938,35 @@ body {
   z-index: 50;
   margin-top: 100px;
   padding: 50px 0;
-
-  // Force visibility
   opacity: 1 !important;
   visibility: visible !important;
   transform: none !important;
 }
 
-// Ensure cards are visible
 .custom-card {
   background-color: transparent;
   border: 1px solid rgba(114, 127, 222, 0.3);
   backdrop-filter: blur(8px);
 }
 
-// Fix potential video overlap
 .hero-container {
   overflow: hidden;
 
   .back-video,
   .blackhole-box {
-    z-index: -10; // Behind content
+    z-index: -10;
   }
 }
 
-/* Projects Section Styling */
 .project-section {
   position: relative;
-  z-index: 100; // Above hero
+  z-index: 100;
   margin-top: 50px;
   padding: 4rem 0;
-
-  /* Force visibility */
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* Project Cards */
 .small-video-card {
   background: rgba(30, 30, 60, 0.8);
   border: 1px solid #727fde;
@@ -843,7 +989,6 @@ body {
   transform: translateY(0);
 }
 
-/* Optional: Add transition delays for staggered effects */
 .project-description:nth-child(odd) {
   transition-delay: 0.2s;
 }
@@ -852,12 +997,10 @@ body {
   transition-delay: 0.4s;
 }
 
-
-// Skills Section 
-
 .skills-section {
   position: relative;
   z-index: 10;
+
 }
 
 .tech-slider {
@@ -869,7 +1012,6 @@ body {
 .slider-track {
   display: flex;
   width: calc(200px * 12);
-  /* Adjust based on number of slides */
   animation: scroll-left 35s linear infinite;
 }
 
@@ -983,13 +1125,8 @@ body {
   }
 }
 
-
-// Mobile-first adjustments (add to your SCSS)
-
-// 1. Hero Section Improvements
 .hero-container {
   @media (max-width: 576px) {
-    // Extra small devices
     height: auto;
     min-height: 100vh;
     padding-bottom: 40px;
@@ -1019,7 +1156,6 @@ body {
   }
 }
 
-// 2. Contact Form Fixes
 #contact {
   @media (max-width: 768px) {
     padding: 1rem;
@@ -1047,7 +1183,6 @@ body {
   }
 }
 
-// 3. Skills Section Improvements
 .skills-section {
   @media (max-width: 768px) {
     .skill-card {
@@ -1076,7 +1211,6 @@ body {
   }
 }
 
-// 4. General Mobile Improvements
 @media (max-width: 576px) {
   .section-title {
     font-size: 1.8rem !important;
@@ -1109,7 +1243,6 @@ body {
   }
 }
 
-// Minimum touch target size
 button,
 .btn,
 a {
@@ -1132,65 +1265,64 @@ a {
   }
 }
 
-
-/* SMALL SCREEN ADJUSTMENTS (max-width: 767.98px) */
 @media (max-width: 991.95px) {
-  /* Fix horizontal scrolling caused by cards */
   .custom-card {
     width: 100%;
     max-width: 100%;
     margin: 0 auto 20px;
-    
+
     .card-img-top {
       height: auto;
       max-height: 180px;
     }
-    
+
     .card-body {
       padding: 15px;
     }
   }
 
-  /* Project video cards */
   .small-video-card {
     width: 100%;
     max-width: 100%;
     margin: 0 auto 20px;
-    
+
     video {
-  
       max-height: 200px;
       object-fit: cover;
     }
   }
 
-  #contact-down{
+  #contact-down {
     margin-top: 15px;
   }
 
-  /* Contact form adjustments */
   #contact {
     padding: 15px;
-    
-    .form-control, .form-select, textarea {
+
+    .form-control,
+    .form-select,
+    textarea {
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
     }
-    
+
     .row {
       margin-left: 0;
       margin-right: 0;
     }
-    
-    .col-md-5, .col-md-7 {
+
+    .col-md-5,
+    .col-md-7 {
       padding-left: 0;
       padding-right: 0;
     }
   }
 
-  /* Ensure all containers don't exceed viewport */
-  .container, .hero-container, .info-section, .project-section {
+  .container,
+  .hero-container,
+  .info-section,
+  .project-section {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
@@ -1199,21 +1331,20 @@ a {
     box-sizing: border-box;
   }
 
-  /* Fix any potential overflow in info sections */
   .myinfo {
     width: 100%;
     padding: 0 15px;
     box-sizing: border-box;
-    
-    h1, p {
+
+    h1,
+    p {
       max-width: 100%;
     }
   }
 
-  /* Skills slider adjustments */
   .tech-slider {
     overflow: hidden;
-    
+
     .slide {
       width: 120px;
       height: 120px;
@@ -1221,10 +1352,9 @@ a {
     }
   }
 
-  /* Footer adjustments */
   footer {
     padding: 20px 15px;
-    
+
     .row {
       margin-left: 0;
       margin-right: 0;
@@ -1232,14 +1362,12 @@ a {
   }
 }
 
-/* EXTRA SMALL DEVICES (max-width: 575.98px) */
 @media (max-width: 575.98px) {
-  /* Even tighter constraints */
   .custom-card {
     .card-title {
       font-size: 1rem;
     }
-    
+
     .card-text {
       font-size: 0.8rem;
     }
@@ -1258,3 +1386,147 @@ a {
   }
 }
 
+// Fix for mobile navbar layout
+@media (max-width: 767.98px) {
+  .custom-navbar {
+    height: auto;
+    min-height: 70px;
+    padding: 10px 15px;
+    flex-wrap: wrap;
+
+    .navbar-brand {
+      order: 1;
+      width: auto;
+      margin-right: auto;
+
+      .nav-name {
+        max-width: 120px;
+        font-size: 1rem;
+      }
+
+      img.logo {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    #mobile-nav-icons {
+      order: 2;
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
+      margin-left: 0;
+
+      &:hover,
+      &.active {
+        background-color: rgba($nav-icon-color, 0.3);
+        transform: translateY(-2px);
+
+        i {
+          color: $nav-icon-color;
+        }
+      }
+      .nav-icon {
+        width: 34px;
+        height: 34px;
+        margin: 0 6px;
+
+        i {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .navbar-toggler {
+      order: 3;
+      margin-left: auto;
+    }
+  }
+}
+
+// Special fix for iPhone 12 Pro (390px width)
+@media only screen and (max-width: 390px) and (max-height: 844px) {
+  .custom-navbar {
+    padding: 8px 10px;
+
+    .navbar-brand {
+      .nav-name {
+        max-width: 100px;
+        font-size: 0.9rem;
+      }
+
+      img.logo {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    #mobile-nav-icons {
+      margin-top: 8px;
+
+      &:hover,
+      &.active {
+        background-color: rgba($nav-icon-color, 0.3);
+        transform: translateY(-2px);
+
+        i {
+          color: $nav-icon-color;
+        }
+
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        margin: 0 4px;
+      }
+    }
+  }
+}
+
+.skills-section {
+  position: relative;
+  z-index: 10;
+  overflow: hidden; // Prevent image overflow
+
+  .row {
+    position: relative;
+    z-index: 2; // Ensure content stays above image
+  }
+
+  // Image container
+  .col-md-4.order-md-2 {
+    position: relative;
+    z-index: 0; // Lower than content
+
+    .skill-image {
+      position: relative;
+      z-index: -1; // Behind everything
+      opacity: 0.7; // Make text more readable
+      pointer-events: none; // Allow clicks to pass through
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // Skill cards
+  .skill-card {
+    position: relative;
+    z-index: 1; // Above the image
+    backdrop-filter: blur(5px);
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .skill-image {
+      max-width: 300px !important;
+      margin: 0 auto 30px !important;
+      opacity: 0.6;
+    }
+
+    .order-md-1,
+    .order-md-3 {
+      order: initial !important;
+    }
+  }
+}

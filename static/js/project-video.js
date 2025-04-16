@@ -79,7 +79,7 @@ function initVideoCards() {
 // Alternative version that scrolls to next section
 function initScrollButton() {
     const scrollButton = document.querySelector('.scroll-down');
-    const sections = document.querySelectorAll('section'); // Or your specific sections
+    const sections = document.querySelectorAll('.form-header'); // Or your specific sections
     
     if (scrollButton && sections.length > 0) {
       let currentSection = 0;
@@ -93,6 +93,7 @@ function initScrollButton() {
     }
   }
 
+  
   // ======================
   // Initialize Everything
   // ======================
